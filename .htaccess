@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+
+	# Impedir que se pueda ver el listado de contenidos de un directorio
+	Options All -Indexes
+
+	# Activar rewrite
+	RewriteEngine On	
+
+	# No mostrar ni Directorios ni Ficheros
+	RewriteCond %{SCRIPT_FILENAME} !-d
+	RewriteCond %{SCRIPT_FILENAME} !-f
+
+	# Reglas
+	RewriteRule ^([-a-zA-Z0-9ñÑ_/]+)$ index.php?route=$1
+
+</IfModule>
